@@ -2,11 +2,15 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^Dockerfile$
+^appveyor\.yml$
 ^NEWS\.md$
 ^uw_thesis_rmd\.png$
 ^README\.md$
-^LICENSE$
+^LICENSE\.md$
 ^CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^\.Rhistory$
+^\.gitattributes$
+^\.gitignore$
 ^index$
+^fonts\.zip$
