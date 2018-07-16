@@ -1,110 +1,61 @@
-% From https://github.com/UWIT-IAM/UWThesis
-
-\documentclass [11pt, proquest] {uwthesis}[2015/03/03]
-
+%%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[oneside,12pt,final]{ucthesis-CA2012}
 
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\newtheorem{theorem}{Jibberish}
 
-%% \bibliography{references}
-
-\hyphenation{mar-gin-al-ia}
-
-%
-% ----- apply watermark to every page
-% ----- change 'stamp' to 'nostamp'
-%------ to omit watermark
-%
-\usepackage[nostamp]{draftwatermark}
-% % Use the following to make modification
-\SetWatermarkText{DRAFT}
-\SetWatermarkLightness{0.95}
-
-%% for the per mil symbol
-\usepackage[nointegrals]{wasysym}
-
-%% for copyright symbol
-\usepackage{textcomp}
-
-%% to allow to rotate pages to landscape
-\usepackage{lscape}
-%% to adjust table column width
-\usepackage{tabularx}
-
-% suppress bottom page numbers on first page of each chapter
-% because they overlap with text
+%--- Packages ---------------------------------------------------------
+\usepackage[lofdepth,lotdepth,caption=false]{subfig}
+\usepackage{fancyhdr}
+%\usepackage{hyperref}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{xspace}
+\usepackage{braket}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{ifxetex,ifluatex}
 \usepackage{etoolbox}
-\patchcmd{\chapter}{plain}{empty}{}{}
-
-%% for more attractive tables
 \usepackage{booktabs}
 \usepackage{longtable}
 
-
-\usepackage{graphicx}
-
-
-% Double spacing, if you want it.
-% \def\dsp{\def\baselinestretch{2.0}\large\normalsize}
-% \dsp
-
-% If the Grad. Division insists that the first paragraph of a section
-% be indented (like the others), then include this line:
-% \usepackage{indentfirst}
-
-%%%%%%%%%%%%%%%%%%
-% If you want to use "sections" to partition your thesis
-% un-comment the following:
-%
-% \counterwithout{section}{chapter}
-% \setsecnumdepth{subsubsection}
-% \def\sectionmark#1{\markboth{#1}{#1}}
-% \def\subsectionmark#1{\markboth{#1}{#1}}
-% \renewcommand{\thesection}{\arabic{section}}
-% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-% \makeatletter
-% \let\l@subsection\l@section
-% \let\l@section\l@chapter
-% \makeatother
-%
-% \renewcommand{\thetable}{\arabic{table}}
-% \renewcommand{\thefigure}{\arabic{figure}}
-%
-%%%%%%%%%%%%%%%%%%
+% suppress bottom page numbers on first page of each chapter
+% because they overlap with text
+\patchcmd{\chapter}{plain}{empty}{}{}
 
 
-%% Stuff from https://github.com/suchow/Dissertate
+%\usepackage{subfigure} (Subfigure package clashes with another package)
 
-% The following line would print the thesis in a postscript font
+%---New Definitions and Commands------------------------------------------------------
+\def\p{\partial}
+\def\im{\mrm{im}}
+\def\Tr{\mrm{Tr}}
+\def\Z{\mbb{Z}}
+\def\R{\mbb{R}}
+%\def\C{\mbb{C}} what the actual hell
+\def\half{\frac{1}{2}}
+\def\filler{\phantom{fillerfillerfiller}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\ph}[1]{\phantom{#1}}
+\newcommand{\udten}[3]{#1^{#2}_{\ph{#2}#3}}
+\newcommand{\duten}[3]{#1^{\ph{#2}#3}_{#2}}
+\newcommand{\pd}[2]{\frac{\p#1}{\p#2}}
+\newcommand{\D}[2]{\frac{d#1}{d#2}}
 
-% \usepackage{natbib}
-% \def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
-
-\setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
-
-\usepackage{biblatex}
-
-\prelimpages
-
-%% from thesisdown
-% To pass between YAML and LaTeX the dollar signs are added by CII
-\Title{$title$}
-\Author{$author$}
-\Year{$year$}
-\Program{$program$}
-\Chair{$chair$}
-\Signature{$signature1$}
-\Signature{$signature2$}
+% from uw_template.tex
 
 % commands and environments needed by pandoc snippets
 % extracted from the output of `pandoc -s`
 %% Make R markdown code chunks work
-\usepackage{array}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
+
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -116,8 +67,6 @@
     \usepackage[utf8]{inputenc}
   \fi
 \fi
-\usepackage{color}
-\usepackage{fancyvrb}
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
@@ -159,26 +108,63 @@
 \setcounter{secnumdepth}{0}
 
 
+%---Set Margins ------------------------------------------------------
+\setlength\oddsidemargin{0.25 in} \setlength\evensidemargin{0.25 in} \setlength\textwidth{6.25 in} \setlength\textheight{8.50 in}
+\setlength\footskip{0.25 in} \setlength\topmargin{0 in} \setlength\headheight{0.25 in} \setlength\headsep{0.25 in}
 
-
+%%%---DOCUMENT---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\copyrightpage
 
-\titlepage
+%=== Preliminary Pages ============================================
+\begin{ucfrontmatter}
+	\input{tex/title}
+	\maketitle
+	\approvalpage
+	\copyrightpage
+	\input{tex/dedicate}%comment out if you don't want a dedication
+	\input{tex/acknowledgements}
+	\input{tex/vitae}
+	\input{tex/abstract}
+	\tableofcontents
+\end{ucfrontmatter}
 
-\setcounter{page}{-1}
-\abstract{$abstract$}
+\begin{ucmainmatter}
 
-\tableofcontents
-\listoffigures
-\listoftables
-
-\acknowledgments{$acknowledgments$}
-
-\dedication{\begin{center}$dedication$\end{center}}
-
-\textpages
-
+% \textpages
 
 $body$
+
+\end{ucmainmatter}
+
+
 \end{document}
+
+
+%---Set Headers and Footers ------------------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
+\fancyhf{}
+
+\makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
+\fancyhead[RE]{\small\rightmark} \fi
+
+\def\cleardoublepage{\clearpage\if@openright \ifodd\c@page\else
+  \hbox{}
+  \vspace*{\fill}
+  \begin{center}
+    This page intentionally left blank
+  \end{center}
+  \vspace{\fill}
+  \thispagestyle{plain}
+  \newpage
+  \fi \fi}
+\makeatother
+\fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
