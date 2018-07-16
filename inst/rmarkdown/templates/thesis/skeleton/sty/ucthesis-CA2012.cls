@@ -1,7 +1,7 @@
 % UCTHESIS DOCUMENT CLASS -- Release info is below.
 %    for LaTeX version 2e - 11/3/94
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{my_ucthesis} [2012/05/08 CTA 1996/06/26 JTW's modification of 1994/10/31 v3.0 University of California Thesis Class]
+\ProvidesClass{ucthesis-CA2012} [2012/05/08 Revision by Curtis Asplund of 1996/06/26 JTW's modification of 1994/10/31 v3.0 University of California Thesis Class]
 
 % stuff
 %    ****************************************
@@ -202,11 +202,11 @@
 
   \null\vfil
   \begin{center}
-    UNIVERSITY of CALIFORNIA \par \@campus \par
+    University of California \par \@campus \par
     \bigskip \medskip \vspace{6ex}
     \fmfont {\bfseries \Large {\@title} \par}   % Formatting of the Dissertation title
     \bigskip \medskip \vspace{6ex}
-    A Dissertation submitted in partial satisfaction  \par
+    A dissertation submitted in partial satisfaction  \par
     \smallskip
     of the requirements for the degree \par
     \bigskip {\@degree} \par
@@ -216,7 +216,7 @@
     \bigskip \medskip {\@author} \par
   \end{center}
   {\vspace{6ex}
-        Committee in Charge:
+        Committee in charge:
         \begin{quote}
           {\@chair}, Chair \\ {\@othermemberA} \\ {\@othermemberB} \\
           \ifnum \@numberofmembers > 3 {\@othermemberC} \\ \fi
@@ -239,7 +239,7 @@
 % affects both the number of lines and the amount of space between lines
 % on the approval page.
 \def\@numberofmembers{3}
-\def\@approvalspace{.75}
+\def\@approvalspace{.75in}
 \def\@approvaladjust{-1\@ptsize pt}
 \def\numberofmembers#1{\gdef\@numberofmembers{#1}
 \ifnum \@numberofmembers > 3
@@ -1037,6 +1037,9 @@
 %     \fps@TYPE.  The environment is ended by \end@float.  E.g.,
 %     \figure == \@float{figure}, \endfigure == \end@float.
 
+%% CA: I changed \let\endfigure\end@float to 
+%% \def\endfigure{\end@float} because the package subfig was complaining 
+%% about it.
 
 % FIGURE
 
@@ -1048,7 +1051,8 @@
 \def\ext@figure{lof}
 \def\fnum@figure{\figurename~\thefigure}
 \def\figure{\@float{figure}}
-\let\endfigure\end@float
+%\let\endfigure\end@float
+\def\endfigure{\end@float}
 \@namedef{figure*}{\@dblfloat{figure}}
 \@namedef{endfigure*}{\end@dblfloat}
 
@@ -1062,7 +1066,8 @@
 \def\ext@table{lot}
 \def\fnum@table{\tablename~\thetable}
 \def\table{\@float{table}}
-\let\endtable\end@float
+%\let\endtable\end@float
+\def\endtable{\end@float}
 \@namedef{table*}{\@dblfloat{table}}
 \@namedef{endtable*}{\end@dblfloat}
 
