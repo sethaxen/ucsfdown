@@ -7,7 +7,6 @@
 \DeclareOption{proquest}% sets electrons-only, proquest style
   {\proquesttrue}
 
-% stuff
 %    ****************************************
 %    *               OPTIONS                *
 %    ****************************************
@@ -27,7 +26,6 @@
   {\@natbibtrue}
 
 
-%
 % ----  Thesis is a modified (default 12pt) book style  -----------------
 %
 
@@ -52,13 +50,9 @@
   \usepackage{natbib}
 \fi
 
-% \newcommand\@ptsize{}
 \newcommand\@draftmark{}
 \newif\if@openright
 \newif\if@ucmainmatter \@ucmainmattertrue
-% \DeclareOption{10pt}{\renewcommand\@ptsize{0}}
-% \DeclareOption{11pt}{\renewcommand\@ptsize{1}}
-% \DeclareOption{12pt}{\renewcommand\@ptsize{2}}
 \DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
 \DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
 \DeclareOption{draft}{\setlength\overfullrule{5pt}\renewcommand\@draftmark{1}}
@@ -68,9 +62,6 @@
 
 \ExecuteOptions{12pt,oneside,final}
 \ProcessOptions
-
-% CHOOSING THE TYPE SIZE:
-%\input uct1\@ptsize.clo\relax
 
 %    ****************************************
 %    *            Some Definitions          *
@@ -83,7 +74,7 @@
 % \smallssp is used to produce tabular environments in the small font.
 % \scriptsizessp is a still smaller version of the same thing.
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
-%\def\dsp{\def\baselinestretch{1.5}\large\normalsize}
+\def\dsp{\def\baselinestretch{1.5}\large\normalsize}
 \def\dsp{\def\baselinestretch{1.655}\large\normalsize}
 \def\smallssp{\def\baselinestretch{1.0}\large\small}
 \def\scriptsizessp{\def\baselinestretch{1.0}\large\scriptsize}
@@ -643,27 +634,6 @@
      \footskip\z@
    }
 
-% \newcounter {part}
-% \newcounter {chapter}
-% \newcounter {section}[chapter]
-% \newcounter {subsection}[section]
-% \newcounter {subsubsection}[subsection]
-% \newcounter {paragraph}[subsubsection]
-% \newcounter {subparagraph}[paragraph]
-
-% For any counter CTR, \theCTR is a macro that defines the printed
-% version of counter CTR.  It is defined in terms of the following
-% macros:
-%
-%  \arabic{COUNTER} : The value of COUNTER printed as an arabic numeral.
-%  \roman{COUNTER}  : Its value printed as a lower-case roman numberal.
-%  \Roman{COUNTER}  : Its value printed as an upper-case roman numberal.
-%  \alph{COUNTER}   : Value of COUNTER printed as a lower-case letter:
-%                         1 = a, 2 = b, etc.
-%  \Alph{COUNTER}   : Value of COUNTER printed as an upper-case letter:
-%                           1 = A, 2 = B, etc.
-%
-
 \def\thepart          {\Roman{part}}
 \def\thechapter       {\arabic{chapter}}
 \def\thesection       {\thechapter.\arabic{section}}
@@ -671,29 +641,6 @@
 \def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
 \def\theparagraph     {\thesubsubsection.\arabic{paragraph}}
 \def\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
-
-
-%% Kludge to get multiple appendices lettered rather than numbered %%
-%% Added by John T. Whelan 1996 June 21                            %%
-%% Added forced single spacing by Ashish A., removed               %%
-%% the \appendixon, changed it to \appendix     - 2002 July 18     %%
-
-%\newcommand{\appendixon}{
-%    \def\thesection{\thechapter.\Alph{section}}
-%    \setcounter{section}{0}
-%}
-\renewcommand\appendix{\par
-  \setcounter{chapter}{0}%
-  \setcounter{section}{0}%
-  \def\@chapapp{\appendixname}%
-  \def\thechapter{\@Alph\c@chapter}
-  \ssp}
-
-\newcommand{\appendixoff}{
-    \def\thesection{\thechapter.\arabic{section}}
-    \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
-}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        PART                          %
@@ -737,44 +684,6 @@
 %    ****************************************
 %    *         TABLE OF CONTENTS, ETC.      *
 %    ****************************************
-%
-% A \subsection command writes a
-%       \contentsline{subsection}{TITLE}{PAGE}
-% command on the .toc file, where TITLE contains the contents of the
-% entry and PAGE is the page number.  If subsections are being numbered,
-% then TITLE will be of the form
-%       \numberline{NUM}{HEADING}
-% where NUM is the number produced by \thesubsection.  Other sectioning
-% commands work similarly.
-%
-% A \caption command in a 'figure' environment writes
-%    \contentsline{figure}{\numberline{NUM}{CAPTION}}{PAGE}
-% on the .lof file, where NUM is the number produced by \thefigure and
-% CAPTION is the figure caption.  It works similarly for a 'table'
-% environment.
-%
-% The command \contentsline{NAME} expands to \l@NAME.  So, to specify
-% the table of contents, we must define \l@chapter, \l@section,
-% \l@subsection, ... ; to specify the list of figures, we must define
-% \l@figure; and so on.  Most of these can be defined with the
-% \@dottedtocline command, which works as follows.
-%
-% \@dottedtocline{LEVEL}{INDENT}{NUMWIDTH}{TITLE}{PAGE}
-%    LEVEL    : An entry is produced only if LEVEL < or = value of
-%               'tocdepth' counter.  Note, \chapter is level 0, \section
-%               is level 1, etc.
-%    INDENT   : The indentation from the outer left margin of the start
-%               of the contents line.
-%    NUMWIDTH : The width of a box in which the section number is to go,
-%               if TITLE includes a \numberline command.
-%
-% This command uses the following three parameters, which are set
-% with a \def (so em's can be used to make them depend upon the font).
-%   \@pnumwidth : The width of a box in which the page number is put.
-%   \@tocrmarg  : The right margin for multiple line entries.  One
-%                 wants \@tocrmarg > or = \@pnumwidth
-%   \@dotsep    : Separation between dots, in mu units.  Should be
-%                 \def'd to a number like 2 or 1.7
 
 \def\@pnumwidth{1.55em}
 \def\@tocrmarg {2.55em}
@@ -878,17 +787,17 @@
 \setlength\paperheight {11in}%
 \setlength\paperwidth  {8.5in}
 
-%% change sizes and margins
-%\topmargin      0.25in
-%\oddsidemargin  0.5in
-%\evensidemargin 0.25in
-%\textheight     7.75in
-%\textwidth      5.75in
-%\headsep        25pt
-%\headheight     12pt
-%\marginparsep  12pt
-%\marginparwidth    54pt
-%\footskip      0.5in
+% change sizes and margins
+\topmargin      0.25in
+\oddsidemargin  0.5in
+\evensidemargin 0.25in
+\textheight     7.75in
+\textwidth      5.75in
+\headsep        25pt
+\headheight     12pt
+\marginparsep  12pt
+\marginparwidth    54pt
+\footskip      0.5in
 
 
 \endinput
