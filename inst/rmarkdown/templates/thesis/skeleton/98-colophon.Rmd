@@ -14,7 +14,7 @@ This version of the thesis was generated on `r Sys.time()`. The repository is cu
 # I've set eval=FALSE to ensure Travis-CI can run
 # if you're not using Travis-CI, then eval=TRUE will be fine
 library(git2r)
-if ( in_repository() ) {
+if ( git2r::in_repository() ) {
        summary(commits()[[1]]) 
 } else { 
        message("We are not in a git repository") 

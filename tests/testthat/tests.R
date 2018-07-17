@@ -17,7 +17,7 @@ dir.create(testing_path, showWarnings = FALSE)
 
 context("check that the pkg template files are present")
 
-template_files <- list.files(system.file('rmarkdown', package='huskydown'), recursive = TRUE)
+template_files <- list.files(system.file('rmarkdown', package='gauchodown'), recursive = TRUE)
 
 test_that("Template files are present", {
   expect_true(length(template_files) == 19)
