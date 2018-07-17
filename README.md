@@ -4,8 +4,12 @@
 
 This project provides a template for writing a PhD dissertation in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University California, Santa Barbara](http://www.graddiv.ucsb.edu/academic/Filing-Your-Thesis-Dissertation-DMA-Document). It uses the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission at UCSB. This package is a more or less direct copy of `huskydown`, with modifications as needed to deal with UCSB's requirements.  Huge thanks to
 
-[huskydown](https://github.com/benmarwick/huskydown)
-[thesisdown](https://github.com/ismayc/thesisdown) and [bookdown](https://github.com/rstudio/bookdown) packages.
+
+-[huskydown](https://github.com/benmarwick/huskydown)
+
+-[thesisdown](https://github.com/ismayc/thesisdown) 
+
+-[bookdown](https://github.com/rstudio/bookdown)
 
 Currently, the PDF and gitbook versions are fully-functional, and are the focus of this package. The word and epub versions are in development, have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
 
