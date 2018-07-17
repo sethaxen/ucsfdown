@@ -64,16 +64,16 @@ devtools::install_github("rstudio/bookdown")
 devtools::install_github("danovando/gauchodown")
 ```
 
-3) Use the **New R Markdown** dialog to select **Thesis**, here are the steps, and a screenshot below:
+3) Use the **New R Markdown** dialog to select **UCSB-Dissertation**, here are the steps, and a screenshot below:
 
-File -> New File -> R Markdown... then choose 'From template', then choose 'UCSB-Thesis, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory `index` at this step. 
+File -> New File -> R Markdown... then choose 'From template', then choose 'UCSB-Dissertation, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory `index` at this step. 
 
-![](uw_thesis_rmd.png)
+![](gauchodown.png)
 
-Or if you're not using RStudio, run this line in your R console to create a new PhD thesis from the template:
+Or if you're not using RStudio, run this line in your R console to create a new PhD dissertation from the template:
 
 ```r
-rmarkdown::draft('index.Rmd', template = 'thesis', package = 'gauchodown', create_dir = TRUE)
+rmarkdown::draft('index.Rmd', template = 'UCSB-Dissertation', package = 'gauchodown', create_dir = TRUE)
 ```
 
 ### Day-to-day writing of your thesis 
