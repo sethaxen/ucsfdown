@@ -2,7 +2,7 @@
 
 # gauchodown <img src="inst/rmarkdown/templates/thesis/skeleton/figure/ucsbwave-blue.png" align="right" />
 
-[![Travis-CI Build Status](https://travis-ci.org/benmarwick/huskydown.svg?branch=master)](https://travis-ci.org/benmarwick/huskydown) 
+# [![Travis-CI Build Status](https://travis-ci.org/benmarwick/huskydown.svg?branch=master)](https://travis-ci.org/benmarwick/huskydown) 
 
 This project provides a template for writing a PhD thesis in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University California, Santa Barbara](http://www.graddiv.ucsb.edu/academic/Filing-Your-Thesis-Dissertation-DMA-Document). It uses the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission at UCSB. This project was inspired by the
 [huskeydown](https://github.com/benmarwick/huskydown)
@@ -66,7 +66,7 @@ devtools::install_github("danovando/gauchodown")
 
 3) Use the **New R Markdown** dialog to select **Thesis**, here are the steps, and a screenshot below:
 
-File -> New File -> R Markdown... then choose 'From template', then choose 'UW-Thesis, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory `index` at this step. 
+File -> New File -> R Markdown... then choose 'From template', then choose 'UCSB-Thesis, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory `index` at this step. 
 
 ![](uw_thesis_rmd.png)
 

@@ -31,7 +31,7 @@ suppressMessages(rmarkdown::draft('index.Rmd',
                                   system.file("rmarkdown",
                                               "templates",
                                               "thesis",
-                                              package = "huskydown"),
+                                              package = "gauchodown"),
                                   create_dir = TRUE,
                                   edit = FALSE))
 
@@ -57,7 +57,7 @@ context("render into a PDF")
 
 if (getwd() != file.path(testing_path, 'index')) setwd(file.path(testing_path, 'index'))
 bookdown::render_book('index.Rmd',
-                      huskydown::thesis_pdf(latex_engine = 'xelatex'),
+                      gauchodown::thesis_pdf(latex_engine = 'xelatex'),
                       envir = globalenv())
 
 test_that("bookdown::render_book generates the PDF of the thesis", {
