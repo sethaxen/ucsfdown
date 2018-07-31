@@ -21,10 +21,10 @@ A modified \code{pdf_document} based on the Reed Senior Thesis LaTeX
 }
 \description{
 This is a function called in output in the YAML of the driver Rmd file
-to specify using the University of Washington Thesis LaTeX template and cls files.
+to specify using the University of California Santa Barbara Thesis LaTeX template and cls files.
 }
 \examples{
 \dontrun{
- output: huskydown::thesis_pdf
+ output: gauchdown::thesis_pdf
 }
 }

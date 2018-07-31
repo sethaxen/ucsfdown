@@ -119,7 +119,7 @@ new.pkg <- pkg[!(pkg %in% installed.packages())]
 if (length(new.pkg))
   install.packages(new.pkg, repos = "http://cran.rstudio.com")
 # Load packages (huskydown will load all of the packages as well)
-library(huskydown)
+library(gauchodown)
 ```
 
 \clearpage
