@@ -63,7 +63,7 @@ To use `gauchodown` from [RStudio](http://www.rstudio.com/products/rstudio/downl
 
 ```
 if (!require("devtools")) install.packages("devtools", repos = "http://cran.rstudio.org")
-devtools::install_github("rstudio/bookdown")
+install.packages("bookdown")
 devtools::install_github("danovando/gauchodown")
 ```
 
