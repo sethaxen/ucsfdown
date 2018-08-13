@@ -1,9 +1,11 @@
 ---
-# UW thesis fields
+# UCSB thesis fields
 title: "Improving the Management of Marine Resources through Economics and Data Science"
 author: "Daniel A. Ovando"
-year: "2018"
-month: "August"
+degree_year: "2018"
+degree_month: "June"
+defense_year: "2018"
+defense_month: "May"
 program: "Maximegalon Institute of Slowly and Painfully Working Out the Surprisingly Obvious"
 uc_campus: "Santa Barbara"
 report: "Dissertation"
@@ -28,6 +30,10 @@ bibliography: bib/thesis.bib
 # Download your specific bibliography database file and refer to it in the line above.
 csl: csl/ieee-with-url.csl
 # Download your specific csl file and refer to it in the line above.
+link-citations: yes
+linkcolor: blue
+citecolor: blue
+urlcolor: blue
 lot: true
 lof: true
 #space_between_paragraphs: true
