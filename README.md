@@ -94,6 +94,11 @@ UCSB's template also has a CV section that includes education and publications. 
 4. For the publications, I just exported a bibliogrphy from [Zotero](http://zotero.org/) to my clipboard and pasted it here. The formatting isn't perfect but I'd call it good enough. If someone wants to take a stab at generating a sub-bibliography in this section that would be great!
 
 
+### Chapter Short Titles
+
+Let's face it, chapter titles are often long (of course to reflect all the amazing research inside). This can create a bit of a mess in the header of your chapters, as "Chapter 1. The Dynamics of Monological Imperatives in *Dick and Jane*: A Study in Phsycic Transrelational Gender Modes" spills over your margins. To that end, you can provide a short title for each chapter that will appear by including `\chaptermark{My Short Title}` below the actual title of each chapter's .Rmd. For example, this template will generate a file called 01-chap1.Rmd. Inside there, the full title of this chapter is `# R Markdown Basics {#rmd-basics}`, and below that I added in a short title called "Basics" by including `\chaptermark{Basics}` in 01-chap1.Rmd. 
+
+ 
 ### Day-to-day writing of your thesis 
 
 You need to edit the individual chapter R Markdown files to write your thesis. 
@@ -101,6 +106,16 @@ You need to edit the individual chapter R Markdown files to write your thesis.
 You can write in the Rmd files without RStudio (in fact RStudio lacks some conveniences for writing, such as live spell-checking and live word count). So you may prefer to do some writing and editing your Rmd files in your favourite text editor. I frequently use [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/), and [Emacs](https://www.gnu.org/software/emacs/). But I come back to RStudio to create the PDF and work on the R code in my documents. 
 
 While writing, you should `git commit` your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should `git push` at the end of each work session before you leave your computer or change task. For gentle novice-friendly guide to getting starting with using Git with R and RStudio, see <http://happygitwithr.com/>.
+
+#### Organizing with `knitr::knit_child`
+
+You can certainly use the same project to house all of the data and code for each of your chapters (and if your analysis runs fast enough you could of course simply do all of your analysis and writing for a chapter in the .Rmd for that chapter). I personally find this to be a bit cumbersome though, and since the end goal of the research in your dissertation isn't the dissertation, but (presumably) papers produced from your dissertation, I preferered to keep each of my chapters in their own projects, which I then knitted together for the final dissertation. Let me explain. 
+
+My dissertation had three chapters. For each chapter, I created a separate RStudio project and folder on my computer, call it "~/PhD/zissou" (I nickname all my projects). Inside that folder I stored the data, code, and paper .Rmd for the `zissou` chapter. When I wanted to actually knit the dissertation, rather than copy-and-pasting all the required results or data from `zissou` over to my `dissertation` folder, I simply used `knit_child` (and some voodoo in the chunk options).
+
+![](knit_child.png)
+
+
 
 ## Rendering
 
