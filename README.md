@@ -116,7 +116,6 @@ My dissertation had three chapters. For each chapter, I created a separate RStud
 ![](knit_child.png)
 
 
-
 ## Rendering
 
 To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the "knit" button. To change the output formats between PDF, gitbook and Word , look at the `output:` field in `index.Rmd`and comment-out the formats you don't want.
