@@ -1,5 +1,8 @@
 # Mathematics and Science {#math-sci}
 
+<!-- This adds a different "short title" -->
+\chaptermark {Mathematics and Equations}
+
 <!-- Required to number equations in HTML files -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({

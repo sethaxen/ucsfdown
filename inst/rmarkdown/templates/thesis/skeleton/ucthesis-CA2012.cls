@@ -195,8 +195,8 @@
 
 \def\degreemonth#1{\gdef\@degreemonth{#1}}  % degree month
 \def\degreeyear#1{\gdef\@degreeyear{#1}}    % degree year
-\def\defensemonth#1{\gdef\@defensemonth{#1}}% defense month
-\def\defenseyear#1{\gdef\@defenseyear{#1}}  % defense year
+% \def\defensemonth#1{\gdef\@defensemonth{#1}}% defense month
+% \def\defenseyear#1{\gdef\@defenseyear{#1}}  % defense year
 \def\degree#1{\gdef\@degree{#1}}            % full (unabbreviated) name of the degree
 \def\chair#1{\gdef\@chair{#1}}              % committee's chair
 \def\othermemberA#1{\gdef\@othermemberA{#1}}% committe members, one per line
@@ -224,45 +224,63 @@
   \pagestyle{plain}}
   {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
-%%% TITLE PAGE %%%%
+%%% UCD TITLE PAGE %%%%
 %%%%%%%%%%%%%%%%%%%
 \def\maketitle{
-{ \ssp
+{ \smallssp
   \let\footnotesize\small \let\footnoterule\relax
-  \thispagestyle{empty}
+  % \thispagestyle{empty}
   \setcounter{page}{1}
-
-  \null\vfil
+  % Davis needs a page number on the first page
+  \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
+  % \null\vfil
+  
   \begin{center}
-    University of California \par \@campus \par
-    \bigskip \medskip \vspace{6ex}
-    \fmfont {\bfseries \Large {\@title} \par}   % Formatting of the Dissertation title
-    \bigskip \medskip \vspace{6ex}
-    A dissertation submitted in partial satisfaction  \par
+    \fmfont {\bfseries\large {\@title} \par}   % Formatting of the Dissertation title
+    \smallskip \vspace{2ex}
+    By \par
+    \medskip \MakeUppercase{\@author} \par
+    \vspace*{\fill}
+    \MakeUppercase{\@report} \par
     \smallskip
-    of the requirements for the degree \par
-    \bigskip {\@degree} \par
-    \smallskip in \par
-    \smallskip {\@field} \par
-    \bigskip \medskip by \par
-    \bigskip \medskip {\@author} \par
-  \end{center}
-  {\vspace{6ex}
-        Committee in charge:
-        \begin{quote}
-          {\@chair}, Chair \\ {\@othermemberA} \\ {\@othermemberB} \\
-          \ifnum \@numberofmembers > 3 {\@othermemberC} \\ \fi
-          \ifnum \@numberofmembers > 4 {\@othermemberD} \\ \fi
-          \ifnum \@numberofmembers > 5 {\@othermembers} \\  \fi
-       \end{quote}
-       \medskip
-       \begin{center} {\@degreemonth~\@degreeyear}\end{center}
-  }
-  \vfil\null \setcounter{footnote}{0}
-  \if@openright
-    \clearpage \thispagestyle{empty} \mbox{} \newpage
-  \fi
-}}
+    \vspace*{\fill}
+    \smallskip
+    Submitted in partial satisfaction of the requirements for the degree of \par
+    \smallskip
+    \vspace*{\fill}
+    \smallskip
+    {\expandafter\uppercase\expandafter{\@degree}} \par
+    \vspace*{\fill} 
+    \small in \par
+    \vspace*{\fill} 
+    {\@field}\par
+    \vspace*{\fill} 
+    \small in the \par
+    \vspace*{\fill} 
+    \MakeUppercase{OFFICE OF GRADUATE STUDIES} \par
+    of the \par
+    \MakeUppercase{UNIVERSITY OF CALIFORNIA} \\
+    \MakeUppercase{\@campus} \par
+    \bigskip \par
+    Approved: \par
+    \medskip \par
+    \bigskip \par
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
+    {(\@chair)}, Chair \\
+    \vskip 2em
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
+    {(\@othermemberA}) \\ 
+    \vskip 2em
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
+    {(\@othermemberB}) \\
+    \vskip 2em
+    % add additional members as needed
+    Committee in Charge \par
+    \@degreeyear
+    \end{center}
+    }
+}
+
 
 % APPROVALPAGE
 %
@@ -281,7 +299,8 @@
 
 \def\approvalpage{
   \newpage
-  \thispagestyle{empty}
+  % \thispagestyle{empty}
+  \renewcommand{\thepage}{\roman{page}}% Davis requires number on every page
   \null\vfill
   \begin{center}
     {\fmfont The Dissertation of {\@author} is approved.} \\
@@ -318,12 +337,9 @@
     \vspace{\@approvalspace}
     \vspace{-.25in}
     \vspace{\@approvalspace}
-    {\fmfont \@defensemonth~\@defenseyear}
+    {\fmfont \@degreemonth~\@degreeyear}
   \end{center}
   \vfill\null
-%  \if@openright
-%    \clearpage \thispagestyle{empty} \mbox{} \newpage
-%  \fi
 }
 
 % COPYRIGHTPAGE
@@ -340,9 +356,7 @@
       \vspace{.1in} by\par
       \vspace{.1in} \@author}
   \end{center}
-%  \if@openright
-%      \clearpage \thispagestyle{empty} \mbox{} \newpage
-%  \fi
+       \if@openright\cleardoublepage \else\clearpage \fi
 }
 
 % DEDICATION
@@ -384,19 +398,21 @@
   \parsep 0in
   \let\makelabel\vitaelabels}}{\end{list}}
 
-% ABSTRACT
+% UCD ABSTRACT
 % The ABSTRACT environment allows for multi-page abstracts and needs the
 % \title and \author macros
 \def\abstract{
     \if@openright\cleardoublepage \else\clearpage \fi
+    \begin{flushright}
+    {
+        \ssp
+        \@author\\
+        \@degreemonth\ \@degreeyear\\
+        \@field\\
+      }
+    \end{flushright}
     \begin{center}
-      {\fmfont {\bfseries \abstractname}\par
-      \vspace{.3in} \@title\par
-      \vspace{.1in} by\par
-      \vspace{.1in} \@author\par}
-%      \vspace{.5in} \@title\par
-%      \vspace{.1in} by\par
-%      \vspace{.1in} \@author\par}
+      {\fmfont {\bfseries \abstractname}\par}
     \end{center}
     \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
 }{\par\vfil\null}
@@ -452,10 +468,6 @@
 \renewcommand\theenumii{\@alph\c@enumii}
 \renewcommand\theenumiii{\@roman\c@enumiii}
 \renewcommand\theenumiv{\@Alph\c@enumiv}
-%\newcommand\labelenumi{\theenumi.}
-%\newcommand\labelenumii{(\theenumii)}
-%\newcommand\labelenumiii{\theenumiii.}
-%\newcommand\labelenumiv{\theenumiv.}
 \renewcommand\p@enumii{\theenumi}
 \renewcommand\p@enumiii{\theenumi(\theenumii)}
 \renewcommand\p@enumiv{\p@enumiii\theenumiii}
@@ -791,13 +803,13 @@
 \topmargin      0.25in
 \oddsidemargin  0.5in
 \evensidemargin 0.25in
-\textheight     7.75in
+\textheight     7.75in % can adjust to 7.00
 \textwidth      5.75in
 \headsep        25pt
 \headheight     12pt
 \marginparsep  12pt
 \marginparwidth    54pt
-\footskip      0.5in
+\footskip      0.5in % can adjust to 0.1
 
 
 \endinput
