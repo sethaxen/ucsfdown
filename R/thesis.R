@@ -13,7 +13,7 @@
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: gauchdown::thesis_pdf
+#'  output: aggiedown::thesis_pdf
 #' }
 thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 
@@ -48,7 +48,7 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: gauchodown::thesis_gitbook
+#'  output: aggiedown::thesis_gitbook
 #' }
 thesis_gitbook <- function(...){
 
@@ -80,7 +80,7 @@ thesis_gitbook <- function(...){
 #' the Reed Senior Thesis Word template
 #' @examples
 #' \dontrun{
-#'  output: gauchodown::thesis_word
+#'  output: aggiedown::thesis_word
 #' }
 thesis_word <- function(...){
 
@@ -105,7 +105,7 @@ thesis_word <- function(...){
 #' @return A ebook version of the thesis
 #' @examples
 #' \dontrun{
-#'  output: gauchodown::thesis_epub
+#'  output: aggiedown::thesis_epub
 #' }
 thesis_epub <- function(...){
 
@@ -136,7 +136,7 @@ fix_envs = function(x){
 #'
 #' This is a function that does nothing
 #'
-#' @import  devtools dplyr  ggplot2 knitr git2r
+#' @import  devtools dplyr ggplot2 knitr
 hush_notes <- function() {
 
 

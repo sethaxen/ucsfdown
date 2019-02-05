@@ -811,5 +811,4 @@
 \marginparwidth    54pt
 \footskip      0.5in % can adjust to 0.1
 
-
 \endinput
