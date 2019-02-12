@@ -2,11 +2,11 @@
 
 # `aggiedown` <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/128px-The_University_of_California_Davis.svg.png" style="width:175px;height:175px;" align="right" />
 
-This project provides a template for writing a PhD thesis in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University of California, Davis](https://grad.ucdavis.edu/resources/graduate-student-resources/academic-information-and-services/filing-thesis-or-dissertation). It uses an amalgamation of the [University of Washington Thesis class](http://staff.washington.edu/fox/tex/) and the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission. This project was inspired by the [thesisdown](https://github.com/ismayc/thesisdown) and [bookdown](https://github.com/rstudio/bookdown) packages.
+This project provides a template for writing a PhD thesis in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University of California, Davis](https://grad.ucdavis.edu/resources/graduate-student-resources/academic-information-and-services/filing-thesis-or-dissertation). It uses an amalgamation of the [University of Washington Thesis class](http://staff.washington.edu/fox/tex/) and the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission. This project was started by the [thesisdown](https://github.com/ismayc/thesisdown) and [bookdown](https://github.com/rstudio/bookdown) packages, but has since followed a [very winding path](https://community.rstudio.com/t/announcing-winners-of-the-1st-bookdown-contest/16394) through many other excellent renditions (please see the University of Washington [`huskydown`](https://github.com/benmarwick/huskydown) and UCSB [`gauchodown`](https://github.com/DanOvando/gauchodown)) before ending up here.
 
 Currently, the PDF and gitbook versions are fully-functional, and are the focus of this package. The word and epub versions are in development, have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
 
-If you are new to working with `bookdown` and `rmarkdown`, please read over the documentation available in aggiedown PDF template (which you can create by following the simple instructions below) and the [bookdown book](https://bookdown.org/yihui/bookdown/).
+If you are new to working with `bookdown` and `rmarkdown`, please read over the documentation available in `aggiedown` PDF template (which you can create by following the simple instructions below) and the [bookdown book](https://bookdown.org/yihui/bookdown/).
 
 At the same time, composition and formatting can be done using lightweight [markdown](http://rmarkdown.rstudio.com/authoring_basics.html) syntax, and **R** code and its output can be seamlessly included using [rmarkdown](http://rmarkdown.rstudio.com).
 
@@ -25,7 +25,9 @@ tinytex::install_tinytex()
 tinytex:::is_tinytex()
 ```
 
-Our PDF template requires some specific fonts, [EB Garamond](https://github.com/georgd/EB-Garamond), [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/) and [Lato](http://www.latofonts.com/lato-free-fonts/). These are included in this repository. You need to install these before proceeding, either by using your usual method of installing fonts, or following these instructions:
+However, if for some reason you are running into trouble, you can use a full install of [MiKTeX](https://miktex.org/) for any system, or [MacTeX](http://www.tug.org/mactex/) for MacOSX systems, and typically things should function.
+
+The PDF template requires some specific fonts, [EB Garamond](https://github.com/georgd/EB-Garamond), [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/) and [Lato](http://www.latofonts.com/lato-free-fonts/). These are included in this repository, however, you need to install these before proceeding, either by using your usual method of installing fonts, or following these instructions:
 
 On a Linux system here's the simplest way to install the fonts:
 
@@ -50,7 +52,7 @@ On Windows the usual pointing and clicking is required to install the fonts list
 
 To use `aggiedown` from [RStudio](http://www.rstudio.com/products/rstudio/download/):
 
-1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/). You can use `aggiedown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. 
+1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/) and [R](https://cran.r-project.org/). You can use `aggiedown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. 
 
 2) Install the `bookdown` and `aggiedown` packages: 
 
@@ -63,9 +65,9 @@ devtools::install_github("ryanpeek/aggiedown")
 
 3) Use the **New R Markdown** dialog to select **UCD-Dissertation**, here are the steps, and a screenshot below:
 
-File -> New File -> R Markdown... then choose 'From template', then choose 'UCD-Dissertation, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory `index` at this step. 
+File -> New File -> R Markdown... then choose 'From template', then choose 'UCD-Dissertation, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory **`index`** at this step. 
 
-![](uw_thesis_rmd.png)
+![](ucd_dissertation_rmd.png)
 
 Or if you're not using RStudio, run this line in your R console to create a new PhD dissertation from the template:
 
@@ -75,18 +77,9 @@ rmarkdown::draft('index.Rmd', template = 'UCD-Dissertation', package = 'aggiedow
 
 ### Starting your first draft
 
-Hopefully now you've got a nice looking repo and your index.Rmd file. The YAML (YAML ain't markup language) material at the start of index.Rmd contains a bunch of metadata for your dissertation. This is where you can enter your name, dissertation title, committee members, abstract, dedication, acknowledgements, etc. 
+Hopefully now you've got a nice looking repo and your `index.Rmd` file. The YAML (YAML ain't markup language) material at the start of index.Rmd contains a bunch of metadata for your dissertation. This is where you can enter your name, dissertation title, committee members, abstract, dedication, acknowledgements, etc. 
 
-UCSB's template also has a CV section that includes education and publications. I'm sure there's a way to automate this, but I'm not going to tackle it at this point. For now, to edit this section inside the repo created from your template
-
-1. Open up template.tex
-
-2. Scroll down to the block labeled "CV" (should be around line 147)
-
-3. Modify the education section as needed
-
-4. For the publications, I just exported a bibliogrphy from [Zotero](http://zotero.org/) to my clipboard and pasted it here. The formatting isn't perfect but I'd call it good enough. If someone wants to take a stab at generating a sub-bibliography in this section that would be great!
-
+The `gauchodown` template has a CV section that includes education and publications, I've commented it out in the `aggiedown` package as UC Davis currently doesn't require this in dissertations. If you want this to appear in your dissertation you'll need to edit this section inside the folder created from your template in the `template.tex` file, and modify the block labeled "CV" (should be around line 147).
 
 ### Chapter Short Titles
 
@@ -105,10 +98,9 @@ While writing, you should `git commit` your work frequently, after every major a
 
 You can certainly use the same project to house all of the data and code for each of your chapters (and if your analysis runs fast enough you could of course simply do all of your analysis and writing for a chapter in the .Rmd for that chapter). I personally find this to be a bit cumbersome though, and since the end goal of the research in your dissertation isn't the dissertation, but (presumably) papers produced from your dissertation, I preferered to keep each of my chapters in their own projects, which I then knitted together for the final dissertation. Let me explain. 
 
-My dissertation had three chapters. For each chapter, I created a separate RStudio project and folder on my computer, call it "~/PhD/zissou" (I nickname all my projects). Inside that folder I stored the data, code, and paper .Rmd for the `zissou` chapter. When I wanted to actually knit the dissertation, rather than copy-and-pasting all the required results or data from `zissou` over to my `dissertation` folder, I simply used `knit_child` (and some voodoo in the chunk options).
+My dissertation had three chapters. For each chapter, I created a separate RStudio project and folder on my computer, for example, call it "Documents/PhD/zissou" . Inside that folder I stored the data, code, and paper `.Rmd` for the `zissou` chapter. When I wanted to actually knit the dissertation, rather than copy-and-pasting all the required results or data from `zissou` over to my `dissertation` folder, I simply used `knit_child` (and some voodoo in the chunk options).
 
 ![](knit_child.png)
-
 
 ## Rendering
 
@@ -117,7 +109,7 @@ To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the
 Alternatively, if you're not using RStudio, you can use this from the R console, assuming your have set the `'index/` directory as your working directory:
 
 ```r
-bookdown::render_book('index.Rmd', gauchodown::thesis_pdf(latex_engine = 'xelatex'))
+bookdown::render_book('index.Rmd', aggiedown::thesis_pdf(latex_engine = 'xelatex'))
 ```
 
 The PDF file of your thesis will be deposited in the `_book/` directory.
@@ -128,7 +120,7 @@ The following components are ones you should edit to customize your thesis:
 
 ### `_bookdown.yml`
 
-This is the main configuration file for your thesis. It determines what Rmd files are included in the output, and in what order. Arrange the order of your chapters in this file and ensure that the names match the names in your folders. 
+This is the main configuration file for your thesis. It determines what `Rmd` files are included in the output, and in what order. Arrange the order of your chapters in this file and ensure that the names match the names in your folders. 
 
 ### `index.Rmd`
 
@@ -156,6 +148,8 @@ Store your figures and data here and reference them in your R Markdown files. Se
 
 This project has drawn directly on code and ideas in the following:
 
+- https://github.com/DanOvando/gauchodown
+- https://github.com/benmarwick/huskydown
 - https://github.com/UWIT-IAM/UWThesis    
 - https://github.com/stevenpollack/ucbthesis  
 - https://github.com/suchow/Dissertate    
