@@ -4,9 +4,9 @@
 \name{aggiedown}
 \alias{aggiedown}
 \alias{aggiedown-package}
-\title{gauchodown: A package for creating undergraduate, Masters, and PhD theses
+\title{aggiedown: A package for creating undergraduate, Masters, and PhD theses
 using R Markdown}
 \description{
-gauchodown: A package for creating undergraduate, Masters, and PhD theses
+aggiedown: A package for creating undergraduate, Masters, and PhD theses
 using R Markdown
 }

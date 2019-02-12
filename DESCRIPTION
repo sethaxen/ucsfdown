@@ -21,7 +21,8 @@ Imports:
     tinytex,
     devtools,
     dplyr,
-    ggplot2
+    ggplot2,
+    git2r
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
