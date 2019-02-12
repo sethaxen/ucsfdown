@@ -11,7 +11,7 @@ if(!require(ggplot2))
     install.packages("ggplot2", repos = "http://cran.rstudio.com")
 if(!require(ggplot2))
     install.packages("bookdown", repos = "http://cran.rstudio.com")
-if(!require(gauchodown)){
+if(!require(aggiedown)){
   library(devtools)
   devtools::install_github("rapeek/aggiedown")
   }
