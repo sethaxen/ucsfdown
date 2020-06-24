@@ -1,20 +1,22 @@
  
 
-# `aggiedown` <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/The_University_of_California_Davis.svg/128px-The_University_of_California_Davis.svg.png" style="width:175px;height:175px;" align="right" />
+# `ucsfdown`
 
-This project provides a template for writing a PhD thesis in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University of California, Davis](https://grad.ucdavis.edu/resources/graduate-student-resources/academic-information-and-services/filing-thesis-or-dissertation). It uses an amalgamation of the [University of Washington Thesis class](http://staff.washington.edu/fox/tex/) and the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission. This project was started by the [thesisdown](https://github.com/ismayc/thesisdown) and [bookdown](https://github.com/rstudio/bookdown) packages, but has since followed a [very winding path](https://community.rstudio.com/t/announcing-winners-of-the-1st-bookdown-contest/16394) through many other excellent renditions (please see the University of Washington [`huskydown`](https://github.com/benmarwick/huskydown) and UCSB [`gauchodown`](https://github.com/DanOvando/gauchodown)) before ending up here.
+*Note: This package is still experimental and does not yet conform to all of UCSF's standards.*
+
+This project provides a template for writing a PhD thesis in R Markdown, and rendering those files into a PDF formatted according to [the requirements of the University of California, San Francisco](https://graduate.ucsf.edu/dissertation-thesis-guidelines). It uses an amalgamation of the [University of Washington Thesis class](http://staff.washington.edu/fox/tex/) and the University of California Thesis Class to convert R Markdown files into a PDF formatted ready for submission. It is copied from University of California Davis's [`aggiedown`](https://github.com/ryanpeek/aggiedown) package, with slight modifications to conform to UCSF's guidelines.
 
 Currently, the PDF and gitbook versions are fully-functional, and are the focus of this package. The word and epub versions are in development, have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
 
-If you are new to working with `bookdown` and `rmarkdown`, please read over the documentation available in `aggiedown` PDF template (which you can create by following the simple instructions below) and the [bookdown book](https://bookdown.org/yihui/bookdown/).
+If you are new to working with `bookdown` and `rmarkdown`, please read over the documentation available in `ucsfdown` PDF template (which you can create by following the simple instructions below) and the [bookdown book](https://bookdown.org/yihui/bookdown/).
 
 At the same time, composition and formatting can be done using lightweight [markdown](http://rmarkdown.rstudio.com/authoring_basics.html) syntax, and **R** code and its output can be seamlessly included using [rmarkdown](http://rmarkdown.rstudio.com).
 
-## Using `aggiedown` to write your dissertation
+## Using `ucsfdown` to write your dissertation
 
 ### Initial setup
 
-Using **aggiedown** has some prerequisites, such as Pandoc, LaTeX and some fonts. To compile PDF documents using **R**, you need to have Pandoc, LaTeX and several related packages installed. If you have a recent version of  [RStudio](http://www.rstudio.com/products/rstudio/download/), then you already have Pandoc and don't need to do anything more about that. 
+Using **ucsfdown** has some prerequisites, such as Pandoc, LaTeX and some fonts. To compile PDF documents using **R**, you need to have Pandoc, LaTeX and several related packages installed. If you have a recent version of  [RStudio](http://www.rstudio.com/products/rstudio/download/), then you already have Pandoc and don't need to do anything more about that. 
 
 Next is LaTeX. By far the easiest way to install LaTeX on any platform is with the [`tinytex`](https://yihui.name/tinytex/) package:
 
@@ -32,13 +34,13 @@ The PDF template requires some specific fonts, [EB Garamond](https://github.com/
 On a Linux system here's the simplest way to install the fonts:
 
 ```
-git clone https://github.com/ryanpeek/aggiedown
-cd aggiedown && unzip inst/fonts.zip
+git clone https://github.com/sethaxen/ucsfdown
+cd ucsfdown && unzip inst/fonts.zip
 cp inst/fonts -r ~/usr/local/share/fonts
 sudo fc-cache -f -v
 ```
 
-On an OSX system you can download a copy of the fonts in this repository with <https://github.com/ryanpeek/aggiedown/raw/master/inst/fonts.zip>, unzip and move them to your fonts directory, or, assuming [homebrew](https://brew.sh/) is installed and updated, this will get you the fonts needed for this template:
+On an OSX system you can download a copy of the fonts in this repository with <https://github.com/sethaxen/ucsfdown/raw/master/inst/fonts.zip>, unzip and move them to your fonts directory, or, assuming [homebrew](https://brew.sh/) is installed and updated, this will get you the fonts needed for this template:
 
 ```
 brew update
@@ -46,40 +48,38 @@ brew tap caskroom/fonts
 brew cask install font-eb-garamond font-source-code-pro font-lato
 ```
 
-On Windows the usual pointing and clicking is required to install the fonts listed above. You can download a copy of the fonts in this repository at <https://github.com/ryanpeek/aggiedown/raw/master/inst/fonts.zip>, unzip and move them to your fonts directory. 
+On Windows the usual pointing and clicking is required to install the fonts listed above. You can download a copy of the fonts in this repository at <https://github.com/sethaxen/ucsfdown/raw/master/inst/fonts.zip>, unzip and move them to your fonts directory. 
 
 ### Starting to write your thesis
 
-To use `aggiedown` from [RStudio](http://www.rstudio.com/products/rstudio/download/):
+To use `ucsfdown` from [RStudio](http://www.rstudio.com/products/rstudio/download/):
 
-1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/) and [R](https://cran.r-project.org/). You can use `aggiedown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. 
+1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/) and [R](https://cran.r-project.org/). You can use `ucsfdown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. 
 
-2) Install the `bookdown` and `aggiedown` packages: 
+2) Install the `bookdown` and `ucsfdown` packages: 
 
 ```
 if (!require("devtools")) install.packages("devtools", repos = "http://cran.rstudio.org")
 install.packages("bookdown")
-devtools::install_github("ryanpeek/aggiedown")
+devtools::install_github("sethaxen/ucsfdown")
 
 ```
 
-3) Use the **New R Markdown** dialog to select **UCD-Dissertation**, here are the steps, and a screenshot below:
+3) Use the **New R Markdown** dialog to select **UCSF-Dissertation**, here are the steps, and a screenshot below:
 
-File -> New File -> R Markdown... then choose 'From template', then choose 'UCD-Dissertation, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory **`index`** at this step. 
+File -> New File -> R Markdown... then choose 'From template', then choose 'UCSF-Dissertation, and enter `index` as the **Name**. Note that this will currently only **Knit** if you name the directory **`index`** at this step. 
 
-![](ucd_dissertation_rmd.png)
+<!-- ![](ucd_dissertation_rmd.png) -->
 
 Or if you're not using RStudio, run this line in your R console to create a new PhD dissertation from the template:
 
 ```r
-rmarkdown::draft('index.Rmd', template = 'UCD-Dissertation', package = 'aggiedown', create_dir = TRUE)
+rmarkdown::draft('index.Rmd', template = 'UCSF-Dissertation', package = 'ucsfdown', create_dir = TRUE)
 ```
 
 ### Starting your first draft
 
 Hopefully now you've got a nice looking repo and your `index.Rmd` file. The YAML (YAML ain't markup language) material at the start of index.Rmd contains a bunch of metadata for your dissertation. This is where you can enter your name, dissertation title, committee members, abstract, dedication, acknowledgements, etc. 
-
-The `gauchodown` template has a CV section that includes education and publications, I've commented it out in the `aggiedown` package as UC Davis currently doesn't require this in dissertations. If you want this to appear in your dissertation you'll need to edit this section inside the folder created from your template in the `template.tex` file, and modify the block labeled "CV" (should be around line 147).
 
 ### Chapter Short Titles
 
@@ -109,7 +109,7 @@ To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the
 Alternatively, if you're not using RStudio, you can use this from the R console, assuming your have set the `'index/` directory as your working directory:
 
 ```r
-bookdown::render_book('index.Rmd', aggiedown::thesis_pdf(latex_engine = 'xelatex'))
+bookdown::render_book('index.Rmd', ucsfdown::thesis_pdf(latex_engine = 'xelatex'))
 ```
 
 The PDF file of your thesis will be deposited in the `_book/` directory.
@@ -170,11 +170,11 @@ If you would like to contribute to this project, please start by reading our [Gu
 <!--
 To update the PDF template stored in inst/ assuming we are at top level:
 
-rmarkdown::draft('index.Rmd', template = 'thesis', package = 'aggiedown', create_dir = TRUE, edit = FALSE)
+rmarkdown::draft('index.Rmd', template = 'thesis', package = 'ucsfdown', create_dir = TRUE, edit = FALSE)
 
 setwd('index')
 
-bookdown::render_book('index.Rmd', aggiedown::thesis_pdf(latex_engine = 'xelatex'))
+bookdown::render_book('index.Rmd', ucsfdown::thesis_pdf(latex_engine = 'xelatex'))
 
 -->
 

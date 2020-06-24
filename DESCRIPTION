@@ -1,17 +1,18 @@
-Package: aggiedown
-Title: An R Markdown thesis template for the University of California Davis
+Package: ucsfdown
+Title: An R Markdown thesis template for the University of California, San Francisco
 Version: 1.0
 Authors@R: c(
+    person("Axen", "Seth", email = "seth.axen@gmail.com", role = "aut"),
     person("Peek", "Ryan", email = "rapeek@ucdavis.edu", role = "aut"),
     person("Ovando", "Dan", email = "dovando07@gmail.com", role = "aut"),
     person("Chester", "Ismay", email = "chester.ismay@gmail.com", role = "aut"),
     person("Nick", "Solomon", email = "nick@nicksolomon.me", role = "aut"),
     person("Ben", "Marwick", email = "benmarwick@gmail.com", role = c("cre", "aut")))
 Description: Using the bookdown package and LaTeX thesis templates from
-    UC Davis, this package aims to encourage reproducible research using
+    UCSF, this package aims to encourage reproducible research using
     simple Markdown syntax while embedding all of the R code to produce plots
     and analyses as well. Based on Chester Ismay's thesisdown and Dan Ovando's gauchodown.
-Maintainer: Ryan Peek <rapeek@ucdavis.edu>
+Maintainer: Seth Axen <seth.axen@gmail.com>
 Depends:
     R (>= 3.5.0)
 Imports:

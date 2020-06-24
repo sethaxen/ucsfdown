@@ -1,5 +1,6 @@
 # MIT License
 
+Copyright (c) 2020 Seth Axen
 Copyright (c) 2018 Ben Marwick
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

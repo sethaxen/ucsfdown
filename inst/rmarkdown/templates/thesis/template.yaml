@@ -1,4 +1,4 @@
-name:  UCD-Dissertation
+name:  UCSF-Dissertation
 description: >
- Template for creating a PhD Thesis at UCD using R Markdown based on the UC LaTeX template and the R bookdown package.
+ Template for creating a PhD Thesis at UCSF using R Markdown based on the UC LaTeX template and the R bookdown package.
 

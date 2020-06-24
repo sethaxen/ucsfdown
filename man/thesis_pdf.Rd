@@ -25,6 +25,6 @@ to specify using the University of California Thesis LaTeX template and cls file
 }
 \examples{
 \dontrun{
- output: aggiedown::thesis_pdf
+ output: ucsfdown::thesis_pdf
 }
 }

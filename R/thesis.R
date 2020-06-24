@@ -13,7 +13,7 @@
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: aggiedown::thesis_pdf
+#'  output: ucsfdown::thesis_pdf
 #' }
 thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 
@@ -48,7 +48,7 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: aggiedown::thesis_gitbook
+#'  output: ucsfdown::thesis_gitbook
 #' }
 thesis_gitbook <- function(...){
 
@@ -80,7 +80,7 @@ thesis_gitbook <- function(...){
 #' the Reed Senior Thesis Word template
 #' @examples
 #' \dontrun{
-#'  output: aggiedown::thesis_word
+#'  output: ucsfdown::thesis_word
 #' }
 thesis_word <- function(...){
 
@@ -105,7 +105,7 @@ thesis_word <- function(...){
 #' @return A ebook version of the thesis
 #' @examples
 #' \dontrun{
-#'  output: aggiedown::thesis_epub
+#'  output: ucsfdown::thesis_epub
 #' }
 thesis_epub <- function(...){
 
