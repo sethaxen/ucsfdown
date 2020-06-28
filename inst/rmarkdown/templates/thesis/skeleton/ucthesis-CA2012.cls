@@ -345,15 +345,15 @@
 
 % COPYRIGHTPAGE
 %
-% While it's technically optional, you probably want a copyright page.
+% The copyright page is required
 % This is a macro, not an environment, because it can be generated
 % with the \title, \author, and \year macros.
 
 \def\copyrightpage{
-  \if@openright\cleardoublepage\else\clearpage\fi
+  % \if@openright\cleardoublepage\else\clearpage\fi
   \begin{center}
       {\fmfont {\@title} \par
-      \vspace{1in}  Copyright \copyright ~\@degreeyear\par
+      \vspace{1in}  Copyright \@degreeyear\par
       \vspace{.1in} by\par
       \vspace{.1in} \@author}
   \end{center}
