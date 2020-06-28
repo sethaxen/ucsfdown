@@ -104,6 +104,8 @@
 \def\abstractname{Abstract}
 \def\acknowledgename{Acknowledgements}
 \def\disclaimername{Disclaimer}
+\def\contributionsname{Contributions}
+\def\epigraphname{Epigraph}
 \def\vitaename{Curriculum Vit\ae}
 \def\@chapapp{\chaptername} % For use in the old 'book' style commands
 
@@ -360,15 +362,26 @@
        \if@openright\cleardoublepage \else\clearpage \fi
 }
 
-% DEDICATION
-\newenvironment{dedication}{
-  \if@openright\cleardoublepage \else\clearpage \fi
-}{}
-
-% ACKNOWLEDGEMENTS
+% DEDICATION AND ACKNOWLEDGEMENTS
 \newenvironment{acknowledgements}{
   \if@openright\cleardoublepage \else\clearpage \fi
   \begin{center} {\large \bfseries \acknowledgename}
+  \end{center}
+  \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
+}{}
+
+% CONTRIBUTIONS
+\newenvironment{contributions}{
+  \if@openright\cleardoublepage \else\clearpage \fi
+  \begin{center} {\large \bfseries \contributionsname}
+  \end{center}
+  \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
+}{}
+
+% EPIGRAPH
+\newenvironment{epigraph}{
+  \if@openright\cleardoublepage \else\clearpage \fi
+  \begin{center} {\large \bfseries \epigraphname}
   \end{center}
   \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
 }{}
