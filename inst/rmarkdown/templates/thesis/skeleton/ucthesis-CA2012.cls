@@ -223,7 +223,7 @@
 %\newif\if@resttwoside
 \newenvironment{ucfrontmatter}{
   \renewcommand{\thepage}{\roman{page}}
-  \pagestyle{plain}}
+  \pagestyle{plain}
   \setcounter{page}{2}}
   {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
